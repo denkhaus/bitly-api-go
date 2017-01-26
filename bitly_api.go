@@ -3,12 +3,13 @@ package bitly_api
 import (
 	"errors"
 	"fmt"
-	"github.com/bitly/go-simplejson"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
+
+	"github.com/bitly/go-simplejson"
 )
 
 type Json struct {
@@ -417,7 +418,7 @@ func (c *Connection) call(endpoint string, params url.Values, array_wrapped bool
 	// params.Set("signature", generateSignature(params, c.secret))
 	// }
 	request_url := fmt.Sprintf("%s://%s/v3/%s?%s", scheme, host, endpoint, params.Encode())
-	fmt.Println(request_url)
+	//fmt.Println(request_url)
 
 	http_client := &http.Client{}
 	request, err := http.NewRequest("GET", request_url, nil)
